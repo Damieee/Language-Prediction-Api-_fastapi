@@ -70,20 +70,7 @@ def train_model(X_train, Y_train):
     svm.fit(X_train, Y_train)
     # Save the trained model to disk
     joblib.dump(svm, "svm_model.pkl")
-
-# Train the SVM model only if the trained model is not already saved
-if not os.path.exists("svm_model.pkl"):
-    X_train, X_test, Y_train, Y_test, tf, label_encoder = pre_process_data()
-    train_model(X_train, Y_train)
-    # Save the trained model and associated objects to disk
-    joblib.dump(tf, "tfidf_vectorizer.pkl")
-    joblib.dump(label_encoder, "label_encoder.pkl")
-else:
-    # Load the trained model and associated objects from disk
-    svm = joblib.load("svm_model.pkl")
-    tf = joblib.load("tfidf_vectorizer.pkl")
-    label_encoder = joblib.load("label_encoder.pkl")
-
+    
 # Function to predict language
 def predict_language(sentence):
     # Clean the input sentence
@@ -99,6 +86,22 @@ def predict_language(sentence):
     predicted_language_name = label_encoder.inverse_transform(predicted_language)
     
     return predicted_language_name[0]
+
+
+# Train the SVM model only if the trained model is not already saved
+if not os.path.exists("svm_model.pkl"):
+    X_train, X_test, Y_train, Y_test, tf, label_encoder = pre_process_data()
+    train_model(X_train, Y_train)
+    # Save the trained model and associated objects to disk
+    joblib.dump(tf, "tfidf_vectorizer.pkl")
+    joblib.dump(label_encoder, "label_encoder.pkl")
+else:
+    # Load the trained model and associated objects from disk
+    svm = joblib.load("svm_model.pkl")
+    tf = joblib.load("tfidf_vectorizer.pkl")
+    label_encoder = joblib.load("label_encoder.pkl")
+
+
 
 # Define request body model
 class SentenceInput(BaseModel):
