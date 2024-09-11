@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
+from utils.text_cleaning import clean_text
 
 # Initialize variables
 svm = None

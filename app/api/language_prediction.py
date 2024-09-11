@@ -1,12 +1,7 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
 from app.services import predict_language
-
+from app.Dto import SentenceInput
 router = APIRouter()
-
-# Request body model
-class SentenceInput(BaseModel):
-    sentence: str
 
 # Language prediction route
 @router.post("/predict_language/")
