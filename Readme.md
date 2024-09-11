@@ -48,8 +48,8 @@ Follow these steps to run the application locally or deploy it using Docker.
 ### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/damieee/fastapi-language-prediction.git
-cd fastapi-language-prediction
+git clone https://github.com/Damieee/language-prediction-api
+cd language-prediction-api
 ```
 
 ### 2. **Setup Environment**
