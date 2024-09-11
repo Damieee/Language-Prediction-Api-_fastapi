@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.language_prediction import router as language_router
+from app.api.language_prediction import router as language_router
 
 app = FastAPI()
 
