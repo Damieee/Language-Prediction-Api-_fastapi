@@ -56,8 +56,6 @@ coverage.xml
 
 # Docker
 *.dockerfile
-**/Dockerfile
-docker-compose.yml
 .dockerignore
 
 # Virtualenv
