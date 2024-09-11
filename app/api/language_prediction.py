@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.services import predict_language
-from app.Dto import SentenceInput
+from services import predict_language
+from Dto import SentenceInput
 router = APIRouter()
 
 # Language prediction route
